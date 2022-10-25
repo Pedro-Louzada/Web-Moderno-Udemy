@@ -1,0 +1,49 @@
+<html lang="port">
+    <head>
+        <title>Um pouco de CSS</title>
+        <!-- dentro de style vou colocar o estilo que quero no meu h1-->
+        <!-- font-size muda o tamanho da fonte, que é dada em pixels...-->
+        <!-- font-weight muda o peso da fonte, exemplo: negrito ...-->
+        <!-- p acessar a classe no CSS você indica um ponto e o nome atribuído a classe-->
+        <!-- aplicar CSS em id você deve aderir # antes do nome dado ao id para acessa-lo-->
+        <!-- background-color muda o fundo -->
+        <!-- color muda a cor da fonte -->
+        <!-- link ele ja fornece da um script que interliga o CSS ao HTML-->
+        <link rel="stylesheet" href="poucoDeCSS.css">
+
+        <!-- ou aplicar o style aqui-->
+        <style>
+            
+        h1 {
+    
+            font-size: 20px; 
+                                
+        }
+        
+        .fundoVermelho{
+                        
+            background-color: brown;
+        
+        }
+        
+        #textoPrincipal {
+        
+        font-size: 40px;
+        font-weight: bold;
+        background-color: #444;
+        color: #fff;
+        
+        
+                    }
+
+    </style>
+    </head>
+    <body>
+        <h1>Básico de CSS</h1>
+        <!-- span tag n visual-->
+        <span id="textoPrincipal">Texto 1</span><br>
+        <!-- <br> quebra linha-->
+        <span class="fundoVermelho">Texto 2</span>
+        <!-- class e id são tipos de identificador -->
+    </body>
+</html>

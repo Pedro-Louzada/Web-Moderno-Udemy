@@ -1,0 +1,13 @@
+/*Herança exemplos...
+body{
+    font-size: 20px;
+    font-family:;
+    border: solid 1px #FFF;
+    padding: 50px;
+}
+
+div {
+    
+    border: inherit; > inherit signfica que vai herdar a border do body
+    
+}*/

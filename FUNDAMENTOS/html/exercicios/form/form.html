@@ -1,0 +1,88 @@
+<!-- form é a tag usada para formulário -->
+
+<!-- no terminal criamos o arq package.json, com o npm init y- dentro da pasta escolhida -->
+
+<!-- dependências que vou precisar no backend, será o express e o bodyparser, 
+    para acessar coloco no temrinal npm i --save express@4.16.3 (núemros seria a versão usada)
+    body-parser@1.18.2 -E, -E seria para baixar uma versão específica -->
+
+<!-- fazemos isso no terminal para ativarmos nossas depêndencias do Node-->
+
+<!-- action >  neste atributo devemos informar o nome da URL para a qual o conteúdo 
+    do formulário será submetido, se este atributo não for especificado, a URL corrente será usada. -->
+
+<!-- method: "POST" > Este método coleta os dados do formulário e armazena no servidor-->
+
+<!-- method: "GET" > Este método coleta os dados do formulário e armazena na URL-->
+
+<!-- input serve para o usuário colocar o dado dele, que no type colocamos o que será inserido e coloca o nome desse input -->
+
+<!-- input do tipo radio seria um controle de opções por bolinhas, ja o checkbox sera um quadradinho-->
+
+<!-- display: block > coloca um em cima do outro-->
+<!-- display: inline> coloca um na frente do outro-->
+
+<!-- select cria um checkbox interativo com varios nomes -->
+
+<!--podemos colocar nossa action nos botões para que cada um deles seja corelaionado com a sua URL específica-->
+
+<!-- node server.js serve para inicializar a captação de dados feita pelo bodyparser -->
+
+<!-- npm i --save-dev nodemon ou npm install nodemon -g > serve para baixar o nodemon e automáticaticamente 
+    quando tiver alterações no código a captação de dados feita pelo bodyparser -->
+
+<h1>Formulário</h1>
+
+<form method="post">
+
+    <input type="hidden" name="id" value="3">
+    <input type="text" name="Nome"> 
+    <input type="password" name="Senha"> 
+    <textarea name="Bio" cols="30" rows="10"></textarea>
+    <div>
+        <input type="radio" name="tipo" value="admin"> Admin 
+        <input type="radio" name="tipo" value="regular"> Regular
+    </div>
+
+    <div>
+        <input type="checkbox" name="ativo"> Ativo
+    </div>
+
+    <select name="Estado">
+        <option value="ac">Acre</option>
+        <option value="sp">Sao Paulo</option>
+    </select>
+
+    <select name="Interesse" multiple size="4">
+        <option value="js">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="c">C</option>
+        <option value="php">PHP</option>
+    </select>
+
+
+    <button formaction="http://localhost:3003/usuarios">Incluir</button>
+    <button formaction="http://localhost:3003/usuarios/3">Alterar</button>
+
+</form>
+
+<style>
+
+    input[type=radio],
+    input[type=checkbox]{
+
+        display: inline;
+    }
+
+    input,
+    textarea,
+    select {
+        
+        display: block;
+        margin-bottom: 10px;
+
+
+    }
+    
+</style>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios HTML</title>
+    <!-- # para acessar ID e aplicar o CSS-->
+    <!-- padding serve p dar espaçamento, colocando os pixels de cima e debaixo 
+        e depois os das laterais--> 
+    <style>
+        #conteudo {
+
+            padding: 30px 0px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- h1 da importância para determinado texto principal-->
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href="exercicios/teste.html">Teste | </a>
+        <a href="exercicios/texto1.html">Texto 1 |</a>
+        <a href="exercicios/texto2.html">Texto 2 |</a>
+        <a href="exercicios/lista.html">Listas |</a>
+        <a href="exercicios/listasAninhadas.html">Listas Aninhadas |</a>
+        <a href="exercicios/links.html">Links |</a>
+        <a href="exercicios/meucurriculo.html">Linkedin |</a>
+        <a href="exercicios/tabela.html">Tabela |</a>
+        <a href="exercicios/form/form.html">Formulário |</a>
+        <a href="exercicios/imagens.html"> Imagens |</a>
+        <a href="exercicios/videos.html"> Vídeos |</a>
+        <a href="exercicios/tagsNaoVisuais.html"> Tags Não Visuais |</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <br>
+        Curso de Web Moderno
+    </footer>
+    <!-- script eu coloco a codificação em JavaScript, vou dar função ao meu link-->
+     <!-- document.querySelectorAll('nome da tag do link <- 'a') vai selecionar a tag
+        vai seleicionar todos os links, podendo colocar os nomes dentro do parenteses...-->
+    <!-- .preventDefault, ele serve para dar um tempo de acontecer a ação, para q n seja tão rápida
+        e imperceptiva...-->
+    <!-- script usado para que quando clicar no link o conteudo ser emitido na mesma guia e não em uma nova...-->
+    <!-- script feito para navegar em uma mesma estrutura, preventDefault...-->
+    <!-- forEach faz com que passe por cada link com a tag "a"-->
+    <script>
+        document.querySelectorAll('a').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+
+            link.onclick = function (e) {
+                e.preventDefault()
+                fetch(link.href)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+                
+            }
+        })
+    </script>
+</body>
+</html>

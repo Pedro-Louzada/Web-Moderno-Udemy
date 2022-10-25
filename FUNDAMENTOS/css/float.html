@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Float</title>
+    <style>
+        body {
+            background-color: #222;
+        }
+
+        .c1 {
+            background-color: red;
+            float: right; /*somente o conteúdo qu esta dentro de c1 estará alinhado a direita da tela*/
+            /*se eu aplicar o float na div, sempre o 1º atributo que no caso seria o c1 vai ser deslocado para direita ou p esquerda*/
+        }
+
+        .c2 {
+            background-color: green;
+            clear: right; /*isso vai fazer com que o c2 não ocupe a primeira posição, por o c1 estar flutuando, ele ocupará sua linha normal*/ 
+        }
+        
+        .c3 {
+            background-color: blue;
+        }
+
+        .c4 {
+            background-color: orange;
+        }
+
+        div{
+
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+    <div class="c4"></div>
+</body>
+
+</html>

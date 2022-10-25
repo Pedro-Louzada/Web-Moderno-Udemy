@@ -1,0 +1,155 @@
+<!--src > te da a fonte da imagem-->
+<!--alt> serve como fonte alternativa, se a imagem não carregar vai vir uma string text alternativa "explicando" a imagem-->
+<!--alt> width largura e height altura -->
+<!--title seria um título que aparece ao você passar o scrow do mouse em cima da imagem-->
+<!--layout absolute faz com que todas as imagem fiquem na mesma position-->
+
+<DIV WM-SLIDER>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" 
+        alt="Muro da Cidade"
+        width="513" height="384"
+        title="Muro da Cidade por Tarso Bessa">
+    </p>
+    
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+        alt="Gif Cod3r"
+        height="384"
+        title="GIF">
+    </p>
+    
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" 
+        alt="Rio de Janeiro"
+        height="384"
+        title="Imagem com borda circular">
+    </p>
+    
+    <p class="texto">
+    
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" 
+        alt="Avatar" height="50" align="left">
+        
+        Texto: As pessoas costumam dizer que a motivação 
+        não dura sempre. Bem, nem o efeito do banho, por isso recomenda-se diariamente.
+    
+    </p>
+    
+    <p class="cidade"></p>
+    
+    <p>
+        <picture>
+
+                <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+                media="(min-width; 600px)">
+
+            <img src="http://files.cod3r.com.br/curso-web/logo-larga.png" alt="Logo">
+        </picture>
+    </p>
+</DIV>
+
+<style>
+
+    P{
+
+        position: absolute;
+        display: none;
+    }
+
+    .circular{
+
+        width: 513px;
+        background-color: #fff;
+
+    }
+
+    .texto{
+
+        width: 400px;
+    }
+
+    .texto img{
+
+        margin-right: 10px;
+    }
+
+    .cidade{
+
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+</style>
+
+<!--background size serve para aumentar o tamanho da imagem-->
+<!--usando source e media, você exibi uma imagem e coloca uam condicional no media, quando ox px forem menores do que os designados
+ele simplesmente pula essa imagem e iria para a outra anexa abaixo-->
+
+<!-- na script novoInicio seria para onde o obj(imagem) irá se mover, como seria um carrosel de imagens ela correrá no eixo x,
+e ele diminui da esquerda para direita entao, daremos um px mais alto e um passo negativo para q a imagem percorra toda a tela-->
+
+<script>
+    function mover(elem, inicio, fim, passo, callback){
+
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim){
+
+            elem.style.left = novoInicio + "px"
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else{
+
+            callback()
+        }
+
+    }
+
+    /*const p = document.querySelector('[WM-SLIDER] > P')
+        p.style.display = 'block'
+         mover(p, 1500, -600, 5, () => {
+        console.log('Terminou!')
+    })
+    */
+    function slider(){
+
+        const elementos = document.querySelectorAll(['[WM-SLIDER] > P'])
+        const slides = Array.from(elementos)
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide (slides, slide) {
+
+        slide.style.display = "block"
+
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide,inicio,fim, 5, () => {
+            
+            slide.style.display='none'
+            exibirSlide(slides, getProximo(slides, slide))
+
+            function getProximo(lista, atual){
+
+                const i =lista.indexOf(atual) + 1
+                return i < lista.length ? lista[i] : lista[0]
+            }
+        })
+    }
+
+    slider()
+
+</script>
+
+<!--- setTimeout > o 7 no final seria o minisegundo que aqla function vai ser executada 
+    - innerWidth você obtem a largura total da tela
+    -no final da scrip dentro da função mover, coloquei uma arrow function 
+    para que no final da ação retorne Temrinou!! ao usuário
+    - function slider é a funçaõ que vai fazer acontecer o movimentos entre todas as imagens, pegando TODOS os parágrafos
+    - clientWidth daria a largura da tag p (ou seja do tamanho do total de todos os slides)->

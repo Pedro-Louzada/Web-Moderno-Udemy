@@ -1,0 +1,28 @@
+/* "*" > seletor padrão seleciona tudo */
+/*  div + p > irmãos adjacentes
+
+/*div ~ p > irmãos que estão dentro de um memso pai*/
+
+/* Ex: ... 
+<ol>
+    <li>Maria<li>
+    <li>Ana<li>
+    <li>Pedro<li>
+</ol>  
+
+Maria e Pedro são irmãos adjacentes, já Maria e Ana são irmãs de um mesmo pai porém ñ adjacentes*/
+
+/*div > p > filhos diretos aninhados*/
+
+/* Ex: ... 
+<div id='aninhado'>
+   <div class='tag'>
+        <section></section>
+</div> 
+
+div com classe tag seria um filho direto da div com id aninhado/*
+
+
+/*div  p > filhos descendentes
+
+qeu seria a section dentro da div com classe = 'tag' */
